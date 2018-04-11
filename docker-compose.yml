@@ -1,0 +1,16 @@
+version: '2.2'
+services:
+    riemann:
+        build: ./riemann
+        ports:
+          - "5555:5555"
+          - "5556:5556"
+        environment:
+          - DATADOGKEY=${DATADOGKEY}
+          - UNIFORMHOST=${UNIFORMHOST}
+    riemann-dash:
+        build: ./riemann-dash
+        ports:
+          - "4567:4567"
+        volumes:
+          - "./riemann-dash/config.json:/riemann-dash/config.json"
