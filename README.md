@@ -20,3 +20,7 @@ e.g.
 ```bash
 DATADOGKEY=xyz123 UNIFORMHOST=riemann.staging docker-compose up
 ```
+
+# behold
+
+Riemann @ http://localhost:4567
