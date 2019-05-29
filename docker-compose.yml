@@ -1,10 +1,13 @@
-version: '2.2'
+version: '3'
 services:
     riemann:
-        build: ./riemann
+        image: riemannio/riemann:latest
         ports:
-          - "5555:5555"
-          - "5556:5556"
+          - "127.0.0.1:5555:5555"
+          - "127.0.0.1:5555:5555/udp"
+          - "127.0.0.1:5556:5556"
+        volumes:
+          - ./riemann/riemann.config:/etc/riemann.config
         environment:
           - DATADOGKEY=${DATADOGKEY}
           - UNIFORMHOST=${UNIFORMHOST}
